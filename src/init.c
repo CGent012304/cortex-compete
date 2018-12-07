@@ -9,6 +9,7 @@
 
 #include "main.h"
 #include "lcd.h"
+#include "portdef.h"
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode one time while the
@@ -40,6 +41,12 @@ void initializeIO() {
 
 
  void initialize() {
+   bool is_reversed = true;
+   bool not_reversed = false;
+   encoderLM = encoderInit(QUAD_TOP_LM_PORT, QUAD_BOTTOM_LM_PORT, not_reversed);
+   encoderRM = encoderInit(QUAD_TOP_RM_PORT, QUAD_BOTTOM_RM_PORT, is_reversed);
+   encoderLIFT = encoderInit(QUAD_TOP_LIFT_PORT, QUAD_BOTTOM_LIFT_PORT, is_reversed);
+
    // When using the LCD select library to set the right Autonomous Program
    lcdScriptInit(uart1); // Example LCD is in UART1
    lcdScriptSelect();

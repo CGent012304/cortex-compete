@@ -30,8 +30,11 @@
  */
  void autoSkill() {
    lcdClear(uart1);
-   lcdPrint(uart1, 1, "Running Script 1");
+   lcdPrint(uart1, 1, "Running autoSkill");
    lcdPrint(uart1, 2, "Batt: %1.3f V", (double)powerLevelMain() / 1000);
+   driveForDistancePID(80, 75);
+   delay(100); 
+   pivotTurn(1, 50, 90, 0);
    delay(200);
    return;
  }
@@ -39,7 +42,7 @@
  void autoRedLeft() {
     // Run select script
     lcdClear(uart1);
-    lcdPrint(uart1, 1, "Running Script 2");
+    lcdPrint(uart1, 1, "Running autoRedLeft");
     lcdPrint(uart1, 2, "Batt: %1.3f V", (double)powerLevelMain() / 1000);
     delay(200);
     return;
@@ -48,7 +51,7 @@
  void autoRedRight() {
     // Run select script
     lcdClear(uart1);
-    lcdPrint(uart1, 1, "Running Script 3");
+    lcdPrint(uart1, 1, "Running autoRedRight");
     lcdPrint(uart1, 2, "Batt: %1.3f V", (double)powerLevelMain() / 1000);
     delay(200);
     return;
@@ -57,7 +60,7 @@
  void autoBlueLeft() {
     // Run select script
     lcdClear(uart1);
-    lcdPrint(uart1, 1, "Running Script 4");
+    lcdPrint(uart1, 1, "Running autoBlueLeft");
     lcdPrint(uart1, 2, "Batt: %1.3f V", (double)powerLevelMain() / 1000);
     delay(200);
     return;
@@ -66,13 +69,13 @@
  void autBlueRight() {
     // Run select script
     lcdClear(uart1);
-    lcdPrint(uart1, 1, "Running Script 5");
+    lcdPrint(uart1, 1, "Running autoBlueRight");
     lcdPrint(uart1, 2, "Batt: %1.3f V", (double)powerLevelMain() / 1000);
     delay(200);
     return;
  }
 
-// FIELD control autonomosu function call
+// FIELD control autonomous function call
 void autonomous() {
   lcdScriptExecute();
  }

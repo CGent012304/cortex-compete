@@ -56,14 +56,24 @@
 
    int power;
    int turn;
+	 int left;
+	 int right;
+
    while (1) {
          // arcade drive
-         power = joystickGetAnalog(1, 2); // vertical axis on left joystick
-         turn  = joystickGetAnalog(1, 1); // horizontal axis on left joystick
-         //motorSet(2, power + turn); // set left wheels
-         //motorSet(3, power - turn); // set right wheels
-         chassisSet(power + turn, power - turn);
+				 if(ARCADE_DRIVE) {
+            power = joystickGetAnalog(1, 2); // vertical axis on left joystick
+            turn  = joystickGetAnalog(1, 1); // horizontal axis on left joystick
+            //motorSet(2, power + turn); // set left wheels
+            //motorSet(3, power - turn); // set right wheels
+            chassisSet(power + turn, power - turn);
+         } else {
+					 /// TANK mode
+					 left = joystickGetAnalog(1, 3); // vertical axis on left joystick
+					 right  = joystickGetAnalog(1, 2); // horizontal axis on left joystick
 
+					 chassisSet(left * JOY_SCALE, right * JOY_SCALE);
+				 }
          // Move the claw open/close using joystick channel 4
          clawMove(joystickGetAnalog(1, 4));
 
