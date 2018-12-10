@@ -16,16 +16,23 @@
 // Claw mechanism
 #define CLAW_M 8
 
+// FlyWHeel Motors
+#define FLY_M_1 9
+
 // ----------- Digital Ports ------------------------------------------
 // Drive train encoders
-#define QUAD_TOP_LM_PORT 6
-#define QUAD_BOTTOM_LM_PORT 7
-#define QUAD_TOP_RM_PORT 4
-#define QUAD_BOTTOM_RM_PORT 5
+#define QUAD_TOP_LM_PORT 3
+#define QUAD_BOTTOM_LM_PORT 4
+#define QUAD_TOP_RM_PORT 5
+#define QUAD_BOTTOM_RM_PORT 6
 
 // Lift encoders
 #define QUAD_TOP_LIFT_PORT 1
 #define QUAD_BOTTOM_LIFT_PORT 2
+
+//Flywheel encoder
+#define QUAD_TOP_FLY_PORT 7
+#define QUAD_BOTTOM_FLY_PORT 8
 
 // ----------- Is DEBUGGING ON ---------------------------------------
 #define DEBUG_ON true
@@ -39,5 +46,6 @@
 Encoder encoderLM;
 Encoder encoderRM;
 Encoder encoderLIFT;
+Encoder encoderFLY;
 
 #endif // _portDef_H_

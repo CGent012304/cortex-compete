@@ -19,7 +19,7 @@ static float pidRequestedValue;
 void liftMove(int speed);
 
 // Move the lift to a given position uisng PID control adn encoder value
-void liftMovePID(int speed, int pisition);
+void liftMovePID(int speed, int position);
 
 //
 void liftPIDtask();

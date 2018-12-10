@@ -1,6 +1,7 @@
 #ifndef _LCD_H_
 #define _LCD_H_
 
+//#include "main.h"
 #include <API.h>
 
 // ARRAYS OF SCRIPTS AND TITLES, NEED TO BE DEFINED ELSEWHERE //
@@ -43,10 +44,10 @@ void lcdPrintCentered(unsigned char line, const char* string);
 void exampleScript2();
 void exampleScript3();
 */
-void autoSkill();
-void autoRedLeft();
+extern void autoSkill();
+extern void autoRedLeft();
 void autoRedRight();
 void autoBlueLeft();
-void autBlueRight();
+void autoBlueRight();
 
 #endif

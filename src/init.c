@@ -37,7 +37,7 @@ void initializeIO() {
  */
  // THese two arrays, hold the script names/description and the function name to be executed
  const char* titles[] = {"Skill", "RedLeft", "RedRight", "BlueLeft", "BlueRight"};
- void (*scripts[])() = {autoSkill, autoRedLeft, autoRedRight, autoBlueLeft, autBlueRight};
+ void (*scripts[])() = {autoSkill, autoRedLeft, autoRedRight, autoBlueLeft, autoBlueRight};
 
 
  void initialize() {
@@ -46,6 +46,7 @@ void initializeIO() {
    encoderLM = encoderInit(QUAD_TOP_LM_PORT, QUAD_BOTTOM_LM_PORT, not_reversed);
    encoderRM = encoderInit(QUAD_TOP_RM_PORT, QUAD_BOTTOM_RM_PORT, is_reversed);
    encoderLIFT = encoderInit(QUAD_TOP_LIFT_PORT, QUAD_BOTTOM_LIFT_PORT, is_reversed);
+   encoderFLY = encoderInit(QUAD_TOP_FLY_PORT, QUAD_BOTTOM_FLY_PORT, is_reversed);
 
    // When using the LCD select library to set the right Autonomous Program
    lcdScriptInit(uart1); // Example LCD is in UART1

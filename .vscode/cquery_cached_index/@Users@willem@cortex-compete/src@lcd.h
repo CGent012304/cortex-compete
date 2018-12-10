@@ -1,11 +1,10 @@
 #ifndef _LCD_H_
 #define _LCD_H_
 
-//#include "main.h"
 #include <API.h>
 
 // ARRAYS OF SCRIPTS AND TITLES, NEED TO BE DEFINED ELSEWHERE //
-#define NUM_SCRIPTS 5
+#define NUM_SCRIPTS 3
 extern const char* titles[];
 extern void (*scripts[])();
 
@@ -37,17 +36,11 @@ void lcdScriptExecute();
 void lcdPrintCentered(unsigned char line, const char* string);
 
 /**
- * Scripts which are selected through the LCD chooser
+ * Scripts which are selected through the LCD chooser 
  */
 
-/*void exampleScript1();
+void exampleScript1();
 void exampleScript2();
 void exampleScript3();
-*/
-extern void autoSkill();
-extern void autoRedLeft();
-void autoRedRight();
-void autoBlueLeft();
-void autoBlueRight();
 
 #endif

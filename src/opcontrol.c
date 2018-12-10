@@ -13,6 +13,7 @@
 #include "lift.h"
 #include "portdef.h" // All port defintions o nthe cortex
 #include "lcd.h"
+#include "flywheel.h"
 
 /*
  * Runs the user operator control code. This function will be started in its own task with the
@@ -53,6 +54,11 @@
 	 taskRunLoop(liftPIDtask, LIFT_TASK_DELTA);
 	 //pidRequestedValue = 400; // should be used to set the target encoder clicks
 	 														// you can bind this to a button on your controller
+
+   // Using PID control to set and hold speed of the flywheel system
+   taskRunLoop(flywheelTask, FLYWHEEL_TASK_DELTA);
+   //pidFlywheelRequestedValue = 800; // should be used to set the target encoder clicks
+   // you can bind this to a button on your controller
 
    int power;
    int turn;

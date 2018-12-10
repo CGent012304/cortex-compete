@@ -33,7 +33,7 @@
    lcdPrint(uart1, 1, "Running autoSkill");
    lcdPrint(uart1, 2, "Batt: %1.3f V", (double)powerLevelMain() / 1000);
    driveForDistancePID(80, 75);
-   delay(100); 
+   delay(100);
    pivotTurn(1, 50, 90, 0);
    delay(200);
    return;
@@ -66,7 +66,7 @@
     return;
  }
 
- void autBlueRight() {
+ void autoBlueRight() {
     // Run select script
     lcdClear(uart1);
     lcdPrint(uart1, 1, "Running autoBlueRight");
