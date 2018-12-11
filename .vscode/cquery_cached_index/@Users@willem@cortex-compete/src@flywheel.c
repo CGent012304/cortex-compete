@@ -27,6 +27,10 @@ void flywheelTask() {
      pidFlywheelRequestedValue = ...; should be used to set the  target
   */
 
+  if(DEBUG_ON) {
+     printf("pidFlywheelRequestedValue: %1.0f \n", pidFlywheelRequestedValue);
+  }
+
   float kI = .025;          //again, this is arbitrary
   float mtrOut = 0;
   float flyTarget = 800;    //still arbitrary - encoder ticks expected
@@ -35,18 +39,56 @@ void flywheelTask() {
   float flyErrLast = 0;
   float I = 0;
   float TBH = 0;
-  int flyEnc = 0;
+
+  int flyEnc = 0;           // encoder value read
   long flyVelTime = 0;
-  int flyEncLast = 0;
+  int flyEncLast = 0;       // last tiem we read the encoder value
   long flyVelTimeLast = 0;
+  long deltaTime = 0;
+  long deltaEncoder = 0;
+
+  // Set the gain
+  float gain = 0.00025;
+
+  int ticks_per_rev = 360;
 
   // If we are using an encoder then clear it
   encoderReset(encoderFLY);
 
+
   while(true) {
+    // What is the speed we are requesting?
+    //flyTarget = pidFlywheelRequestedValue;
+
+    flyTarget = pidFlywheelRequestedValue;
+
     flyVelTime = micros();
-    flyVel = (encoderGet(encoderFLY) - flyEncLast) / (flyVelTime - flyVelTimeLast);
+    deltaTime =  flyVelTime - flyVelTimeLast;
+
+    deltaEncoder = encoderGet(encoderFLY) - flyEncLast;
+
+    flyVel = (1000.0 / deltaTime) * deltaEncoder * 60.0 / ticks_per_rev;
+
+    // calculate error in velocity
+    // target_velocity is desired velocity
+    // current is measured velocity
     flyErr = flyTarget - flyVel;
+
+    if(DEBUG_ON){
+      printf("Fly Wheel Time: %ld ", flyVelTime );
+      printf("Last Time: %ld " , flyVelTimeLast );
+      printf("Time Delta: %ld ", deltaTime);
+      printf("Encoder: %d " , flyEnc );
+      printf("Encoder Last: %d ", flyEncLast);
+      printf("Enc Delta: %ld ", deltaEncoder);
+      printf("Speed: %1.2f " , flyVel );
+      printf("Target: %1.2f " , flyTarget );
+      printf("Error: %1.2f \n", flyErr );
+    }
+    // Calculate new control value
+    //drive =  drive + (flyErr * gain);
+
+    // Clip to the range 0 - 1.  We are only going forwards
     I += flyErr;
     mtrOut = I * kI;
     if(mtrOut > 127) {
@@ -65,9 +107,17 @@ void flywheelTask() {
       // the last error doesn't matter unless the sign is different, so the last error is
       // only stored when necessary
     }
+
+    if(DEBUG_ON){
+       printf("MtrSpeed: %1.2f ", mtrOut);
+       printf("TBH: %1.2f ", TBH);
+       printf("I: %1.2f \n", I);
+    }
+
     setFly(mtrOut);
     flyEncLast = encoderGet(encoderFLY);
-    flyVelTimeLast = flyVel;
+    flyVelTimeLast = flyVelTime;
     delay(20);
+
   }
 }

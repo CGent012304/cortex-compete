@@ -66,6 +66,9 @@
 	 int right;
 
    while (1) {
+
+         pidFlywheelRequestedValue = 800;       // FLYWHEEL speed
+
          // arcade drive
 				 if(ARCADE_DRIVE) {
             power = joystickGetAnalog(1, 2); // vertical axis on left joystick

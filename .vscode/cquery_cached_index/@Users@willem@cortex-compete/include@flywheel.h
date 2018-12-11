@@ -2,7 +2,7 @@
 #define _FLYWHEEL_H_
 
 static int   pidFlywheelRunning = 1;
-static float pidFlywheelRequestedValue;
+float pidFlywheelRequestedValue;
 
 #define FLYWHEEL_TASK_DELTA 150
 
