@@ -6,7 +6,7 @@
 void setFly(float flyPower){
   motorSet(FLY_M_1, flyPower);
   // motorSet(FlY_M_2, flyPower); // If multipl motors on multiple Ports
-                                  // include them i nthis functions
+                                  // include them in this functions
 
 }
 
@@ -33,7 +33,7 @@ void flywheelTask() {
 
   float kI = .025;          //again, this is arbitrary
   float mtrOut = 0;
-  float flyTarget = 800;    //still arbitrary - encoder ticks expected
+  float flyTarget = 200;    //still arbitrary - encoder ticks expected
   float flyVel = 0;
   float flyErr = 0;
   float flyErrLast = 0;
@@ -42,7 +42,7 @@ void flywheelTask() {
 
   int flyEnc = 0;           // encoder value read
   long flyVelTime = 0;
-  int flyEncLast = 0;       // last tiem we read the encoder value
+  int flyEncLast = 0;       // last time we read the encoder value
   long flyVelTimeLast = 0;
   long deltaTime = 0;
   long deltaEncoder = 0;
@@ -50,7 +50,7 @@ void flywheelTask() {
   // Set the gain
   float gain = 0.00025;
 
-  int ticks_per_rev = 360;
+  int ticks_per_rev = 360;  // Using shaft encoder
 
   // If we are using an encoder then clear it
   encoderReset(encoderFLY);
@@ -62,7 +62,7 @@ void flywheelTask() {
 
     flyTarget = pidFlywheelRequestedValue;
 
-    flyVelTime = micros();
+    flyVelTime = micros();    // Get current system time from processor
     deltaTime =  flyVelTime - flyVelTimeLast;
 
     deltaEncoder = encoderGet(encoderFLY) - flyEncLast;

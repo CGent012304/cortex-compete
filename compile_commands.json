@@ -21,11 +21,11 @@
             "-fdiagnostics-color",
             "-std=gnu99",
             "-o",
-            "bin/auto.c.o",
-            "src/auto.c"
+            "bin/lcd.c.o",
+            "src/lcd.c"
         ],
         "directory": "/Users/willem/cortex-compete",
-        "file": "src/auto.c"
+        "file": "src/lcd.c"
     },
     {
         "arguments": [
@@ -49,11 +49,11 @@
             "-fdiagnostics-color",
             "-std=gnu99",
             "-o",
-            "bin/lift.c.o",
-            "src/lift.c"
+            "bin/flywheel.c.o",
+            "src/flywheel.c"
         ],
         "directory": "/Users/willem/cortex-compete",
-        "file": "src/lift.c"
+        "file": "src/flywheel.c"
     },
     {
         "arguments": [
@@ -133,11 +133,11 @@
             "-fdiagnostics-color",
             "-std=gnu99",
             "-o",
-            "bin/chassis.c.o",
-            "src/chassis.c"
+            "bin/lift.c.o",
+            "src/lift.c"
         ],
         "directory": "/Users/willem/cortex-compete",
-        "file": "src/chassis.c"
+        "file": "src/lift.c"
     },
     {
         "arguments": [
@@ -161,39 +161,11 @@
             "-fdiagnostics-color",
             "-std=gnu99",
             "-o",
-            "bin/lcd.c.o",
-            "src/lcd.c"
+            "bin/auto.c.o",
+            "src/auto.c"
         ],
         "directory": "/Users/willem/cortex-compete",
-        "file": "src/lcd.c"
-    },
-    {
-        "arguments": [
-            "clang++",
-            "-c",
-            "-target",
-            "armv7ar-none-none-eabi",
-            "-isystem/usr/local/Caskroom/gcc-arm-embedded/7-2018-q2-update/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/include",
-            "-isystem/usr/local/Caskroom/gcc-arm-embedded/7-2018-q2-update/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/include-fixed",
-            "-isystem/usr/local/Caskroom/gcc-arm-embedded/7-2018-q2-update/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/include",
-            "-isystem./include",
-            "-iquote./include/./",
-            "-mthumb",
-            "-mcpu=cortex-m3",
-            "-mlittle-endian",
-            "-Os",
-            "-ffunction-sections",
-            "-fsigned-char",
-            "-fomit-frame-pointer",
-            "-fsingle-precision-constant",
-            "-fdiagnostics-color",
-            "-std=gnu99",
-            "-o",
-            "bin/flywheel.c.o",
-            "src/flywheel.c"
-        ],
-        "directory": "/Users/willem/cortex-compete",
-        "file": "src/flywheel.c"
+        "file": "src/auto.c"
     },
     {
         "arguments": [
@@ -222,5 +194,33 @@
         ],
         "directory": "/Users/willem/cortex-compete",
         "file": "src/claw.c"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-isystem/usr/local/Caskroom/gcc-arm-embedded/7-2018-q2-update/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/include",
+            "-isystem/usr/local/Caskroom/gcc-arm-embedded/7-2018-q2-update/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/include-fixed",
+            "-isystem/usr/local/Caskroom/gcc-arm-embedded/7-2018-q2-update/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/include",
+            "-isystem./include",
+            "-iquote./include/./",
+            "-mthumb",
+            "-mcpu=cortex-m3",
+            "-mlittle-endian",
+            "-Os",
+            "-ffunction-sections",
+            "-fsigned-char",
+            "-fomit-frame-pointer",
+            "-fsingle-precision-constant",
+            "-fdiagnostics-color",
+            "-std=gnu99",
+            "-o",
+            "bin/chassis.c.o",
+            "src/chassis.c"
+        ],
+        "directory": "/Users/willem/cortex-compete",
+        "file": "src/chassis.c"
     }
 ]
