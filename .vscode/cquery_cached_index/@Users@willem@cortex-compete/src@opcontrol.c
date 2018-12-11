@@ -67,7 +67,7 @@
 
    while (1) {
 
-         pidFlywheelRequestedValue = 800;       // FLYWHEEL speed
+         pidFlywheelRequestedValue = 10;       // FLYWHEEL speed
 
          // arcade drive
 				 if(ARCADE_DRIVE) {

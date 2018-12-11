@@ -117,7 +117,7 @@ void flywheelTask() {
     setFly(mtrOut);
     flyEncLast = encoderGet(encoderFLY);
     flyVelTimeLast = flyVelTime;
-    delay(20);
+    delay(200);
 
   }
 }
